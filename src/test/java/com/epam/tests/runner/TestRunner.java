@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
     plugin = "pretty",
     monochrome = true,
-//    tags = "@test",
+    tags = "@test",
     glue = "com.epam.tests",
     features = "classpath:com.epam.tests.features"
 )

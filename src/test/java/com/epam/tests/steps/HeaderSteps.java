@@ -7,6 +7,7 @@ import com.epam.training.pages.HomePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import java.util.List;
 import org.openqa.selenium.interactions.Actions;
 
 public class HeaderSteps {
@@ -20,17 +21,41 @@ public class HeaderSteps {
   }
 
   @When("the user hovers over a menu item {string}")
-  public void theUserHoversOverAMenuItem(String menuItem) {
+  public void userHoversOverAMenuItem(String menuItem) {
     action.moveToElement(homePage.hoverOverAMenuItem(menuItem)).perform();
   }
-
-//  @Then("following sections are displayed {string}")
-//  public void submenuAppearsAndDisplaysSectionsDivisionByPriceByCityAndBrand(String section) {
-//    assertThat(homePage.isElementDisplayed(section)).isTrue;
-//  }
 
   @Then("submenu appears")
   public void submenuAppears() {
     assertThat(homePage.checkSubmenu().isDisplayed()).isTrue();
+  }
+
+  @Then("price section is displayed")
+  public void priceSectionIsDisplayed(List<String> arg) {
+    System.out.println(homePage.getElementsFromHeader());
+    assertThat(homePage.getElementsFromHeader().containsAll(arg))
+        .as("Price section is not displayed")
+        .isTrue();
+  }
+
+  @Then("city section is displayed")
+  public void citySectionIsDisplayed(List<String> arg) {
+    assertThat(homePage.getElementsFromHeader().containsAll(arg))
+        .as("City section is not displayed")
+        .isTrue();
+  }
+
+  @Then("brand section is displayed")
+  public void brandSectionIsDisplayed(List<String> arg) {
+    assertThat(homePage.getElementsFromHeader().containsAll(arg))
+        .as("Brand section is not displayed")
+        .isTrue();
+  }
+
+  @Then("rooms section is displayed")
+  public void roomsSectionIsDisplayed(List<String> arg) {
+    assertThat(homePage.getElementsFromHeader().containsAll(arg))
+        .as("Rooms section is not displayed")
+        .isTrue();
   }
 }
