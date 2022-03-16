@@ -32,7 +32,6 @@ public class HeaderSteps {
 
   @Then("price section is displayed")
   public void priceSectionIsDisplayed(List<String> arg) {
-    System.out.println(homePage.getElementsFromHeader());
     assertThat(homePage.getElementsFromHeader().containsAll(arg))
         .as("Price section is not displayed")
         .isTrue();

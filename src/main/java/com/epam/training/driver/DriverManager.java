@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class DriverManager {
 
   private static final String CHROME_DRIVER_PATH =
-      "D:/IDEA projects/Cucumber_project/src/main/resources/chromedriver.exe";
+      "src/main/resources/chromedriver.exe";
   private static final int IMPLICITLY_WAIT_TIMEOUT = 5;
   private static final int PAGE_LOAD_TIMEOUT = 20;
   private static final ThreadLocal<WebDriver> webDriverThreadLocal = new ThreadLocal<>();
