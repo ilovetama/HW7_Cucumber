@@ -15,7 +15,8 @@ public class HomePage extends BasePage {
   private static final String SUBMENU =
       "//*[contains(@class, 'b-main-navigation__dropdown_visible')]";
   private static final String HEADER_XPATH =
-      "//*[contains(@class, 'b-main-navigation__dropdown_visible')]//span[contains(@class,'advert-sign')]";
+      "//*[contains(@class, 'b-main-navigation__dropdown_visible')]"
+          + "//span[contains(@class,'advert-sign')]";
 
   public void openOnlinerHomePage() {
     DriverManager.getDriver().get(ONLINER_URL);
@@ -30,8 +31,7 @@ public class HomePage extends BasePage {
   }
 
   public Collection<String> getElementsFromHeader() {
-    return getTextsFromWebElements(waitForElementsVisible(By.xpath
-        (HEADER_XPATH)));
+    return getTextsFromWebElements(waitForElementsVisible(By.xpath(HEADER_XPATH)));
   }
 
 }

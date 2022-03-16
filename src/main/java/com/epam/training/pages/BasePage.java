@@ -1,6 +1,7 @@
 package com.epam.training.pages;
 
 import com.epam.training.driver.DriverManager;
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,22 +26,10 @@ public abstract class BasePage {
     return DriverManager.getDriver().findElement(by);
   }
 
-  public List<WebElement> findElements(By by) {
-    return DriverManager.getDriver().findElements(by);
-  }
-
-  public boolean isElementDisplayed(By by) {
-    return !findElements(by).isEmpty();
-  }
-
   public List<WebElement> waitForElementsVisible(By by) {
-    Wait<WebDriver> wait = new WebDriverWait(DriverManager.getDriver(), DRIVER_WAIT_TIME);
+    Wait<WebDriver> wait = new WebDriverWait(DriverManager.getDriver(),
+        Duration.ofSeconds(DRIVER_WAIT_TIME));
     return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
-  }
-
-  public WebElement waitForElementVisible(By by) {
-    Wait<WebDriver> wait = new WebDriverWait(DriverManager.getDriver(), DRIVER_WAIT_TIME);
-    return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
   }
 
   public List<String> getTextsFromWebElements(List<WebElement> webElements, String splitByRegex) {
