@@ -18,7 +18,13 @@ Feature: As a user I want to see that a submenu has appeared and displays: city 
       | 2-комнатные  |
       | 3-комнатные  |
       | 4+-комнатные |
+      | Комнаты      |
     And price section is displayed
       | До 30 000 $     |
       | 30 000–80 000 $ |
       | От 80 000 $     |
+      | От собственника |
+      | До 250 $        |
+      | 250-500 $       |
+      | От 500 $        |
+
