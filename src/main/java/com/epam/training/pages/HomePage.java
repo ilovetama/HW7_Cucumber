@@ -6,8 +6,11 @@ import com.epam.training.driver.DriverManager;
 import java.util.Collection;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class HomePage extends BasePage {
+
+  public Actions action = new Actions(DriverManager.getDriver());
 
   private static final String ONLINER_URL = "https://onliner.by/";
   private static final String TEXT_PATTERN = "%s[contains(text(), '%s')]";
